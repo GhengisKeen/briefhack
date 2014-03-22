@@ -77,3 +77,11 @@ body {
     border-bottom: 0;
   }
 }
+
+.newContainer {
+  border: 1px solid black;
+}
+
+.clickedClass {
+  background: blue;
+}
