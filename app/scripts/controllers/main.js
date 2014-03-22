@@ -4,22 +4,31 @@ angular.module('briefhackApp')
 	.controller('MainCtrl', function($scope, $http) {
 		$scope.selected = [];
 
-		
+
 		$scope.btnAdd = function() {
 			alert(0);
 		};
 		$scope.isActive = false;
 
 		// Authenticate
-		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/UserInfo');
+		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/UserInfo', {headers:{"Authorize":btoa("eikonhack@thomsonreuters.com:Password1")}});
 
 		// Get news item from hard-coded category
 		$scope.newsList = [];
-		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/TopNews', {
-			params: {
+
+		function encodeQueryString(obj) {
+			var str = [];
+			for(var p in obj)
+				if (obj.hasOwnProperty(p)) {
+					str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+				}
+			return str.join("&");
+		}
+
+		$http.get('api/Reuters/TopNews/' + encodeQueryString({
 				"$filter":"Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
 				"$select":"headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier"
-			}
+			})
 		}).
 	    success(function(data, status, headers, config) {
 	    	for (var index = 0; index < data.d.length; index++) {
