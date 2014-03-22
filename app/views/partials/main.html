@@ -10,8 +10,9 @@
 </div> -->
 
 <div class="row marketing">
-  <div ng-repeat="thing in newsList" ng-class="{{thing.clickedClass}}" ng-click="highlightMe($index)" class="newContainer">
+  <div ng-repeat="thing in newsList" ng-class="{true: 'active', false: 'inactive'}[thing.isActive]" ng-click="highlightMe($index)" class="newContainer">
       <h4>{{thing.name}}</h4>
+      {{thing.clickedClass}}
       <!-- <p>{{thing.info}}</p> -->
   </div>
 </div>
