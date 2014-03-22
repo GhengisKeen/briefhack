@@ -1,6 +1,29 @@
 'use strict';
 
+// .factory('News', function News($resource) {
 angular.module('briefhackApp')
-	.service('News', function News() {
-		// AngularJS will instantiate a singleton by calling "new" on this function
+	.factory('News', function News() {
+		return {
+			get: function() {
+				return [{
+					name: 'newsAAA',
+					headline: 'newsAAA',
+					excerpt: 'newsAAA',
+					code: 'newsAAA',
+					isActive: false
+				}, {
+					name: 'newsAAA',
+					headline: 'newsAAA',
+					excerpt: 'newsAAA',
+					code: 'newsAAA',
+					isActive: false
+				}, {
+					name: 'newsAAA',
+					headline: 'newsAAA',
+					excerpt: 'newsAAA',
+					code: 'newsAAA',
+					isActive: false
+				}];
+			}
+		};
 	});
