@@ -3,6 +3,9 @@
 angular.module('briefhackApp')
 	.controller('MainCtrl', function($scope, $http) {
 		$scope.selected = [];
+		$scope.btnAdd = function() {
+			alert(0);
+		};
 		$scope.newsList = [{
 			name: 'newsAAA',
 			headline: 'newsAAA',
