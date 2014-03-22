@@ -83,12 +83,14 @@ body {
 }
 
 .active {
-  background-color: blue;
-  /*background: blue;*/
-  /*display:none;*/
+  background-color: grey;
 }
 .inactive {
-  background-color: black;
-  /*background: blue;*/
-  /*display:none;*/
+  background-color: white;
+}
+
+.newsItemContainer {
+  border: 1px solid black;
+  padding: 20px 0;
+  margin: 20px 0;
 }
