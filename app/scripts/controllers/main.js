@@ -6,7 +6,7 @@ angular.module('briefhackApp')
 
 		// Authenticate
 		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/UserInfo').error(function(data) {
-			debugger
+			// debugger
 		});
 
 		// Get news item from hard-coded category
@@ -32,7 +32,7 @@ angular.module('briefhackApp')
 			}
 		}).
 		error(function(data, status, headers, config) {
-			debugger;
+			// debugger;
 		});
 
 		$scope.isActive = false;

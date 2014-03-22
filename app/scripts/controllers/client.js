@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http, News) {
+	.controller('ClientCtrl', function($scope, $http, News, $location) {
+		$scope.go = function(params) {
+			return (decodeURIComponent(params));
+		};
+
+		$scope.a = {'$test':"urn'test'", '$blah':'foo'};
+		$scope.b = buildUrl($scope.a);
+		console.log('b', $scope.b);
 		$scope.newsList = [{
 			name: 'newsAAA',
 			headline: 'newsAAA',
@@ -21,7 +28,7 @@ angular.module('briefhackApp')
 			code: 'newsAAA',
 			isActive: false
 		}];
-		
+
 		console.log(News.get());
 		$http.get('/api/awesomeThings').success(function(awesomeThings) {
 			$scope.awesomeThings = awesomeThings;
