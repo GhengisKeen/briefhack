@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http) {
+	.controller('ClientCtrl', function($scope, $http, News) {
 		$scope.newsList = [{
 			name: 'newsAAA',
 			headline: 'newsAAA',
@@ -22,6 +22,7 @@ angular.module('briefhackApp')
 			isActive: false
 		}];
 		
+		console.log(News.get());
 		$http.get('/api/awesomeThings').success(function(awesomeThings) {
 			$scope.awesomeThings = awesomeThings;
 		});
