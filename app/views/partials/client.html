@@ -1,0 +1,12 @@
+<div class="row marketing">
+    <div ng-repeat="thing in newsList" ng-class="{true: 'active', false: 'inactive'}[thing.isActive]" ng-click="highlightMe($index)" class="newsItemContainer">
+        <h4>{{thing.name}}</h4>
+        {{thing.clickedClass}}
+        <!-- <p>{{thing.info}}</p> -->
+    </div>
+</div>
+<button ng-click="btnAdd()" class="btn btn-default">Add to case</button>
+</div>
+<div class="footer">
+    <p>♥ from the Yeoman team</p>
+</div>

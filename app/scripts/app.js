@@ -12,6 +12,14 @@ angular.module('briefhackApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
+      .when('/client/', {
+        templateUrl: 'partials/client',
+        controller: 'ClientCtrl'
+      })
+      .when('/desktop/', {
+        templateUrl: 'partials/desktop',
+        controller: 'DesktopCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
