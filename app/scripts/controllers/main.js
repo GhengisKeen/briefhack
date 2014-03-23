@@ -22,10 +22,10 @@ angular.module('briefhackApp')
 			return str.join('&');
 		}
 
-		$http.get('/api/Reuters/TopNews/' + encodeQueryString({
+		$http.get('/api/Reuters/TopNews/' + encodeURIComponent(JSON.stringify({
 			'$filter': "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
 			'$select': 'headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier'
-		})).
+		}))).
 		success(function(data) {
 			for (var index = 0; index < data.d.length; index++) {
 				console.log(data.d[index]);
