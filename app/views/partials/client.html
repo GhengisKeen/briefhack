@@ -1,6 +1,6 @@
 <div class="row marketing">
-    <select ng-model="catid" ng-options="c.value as c.name for c in catList" ng-change="goToCategory()"></select><br>
-    <div ng-class="{showing: isLoading}" style="display:inline-block; background-color:white;"></div>
+    <select class="form-control" ng-model="catid" ng-options="c.value as c.name for c in catList" ng-change="goToCategory()"></select>
+    <div ng-class="{showing: isLoading}" class="loading-icon"></div>
 
     <div ng-repeat="item in newsList" ng-class="{true: 'active', false: 'inactive'}[item.isActive]" ng-click="highlightMe($index)" class="newsItemContainer">
 	    <div>

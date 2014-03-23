@@ -187,6 +187,8 @@ fieldset[disabled] .btn-custom.active {
   z-index: 2;
   top: 0;
   width: 100%;
+  margin-left: -5px;
+  padding: 5px;
 }
 
 .newsItemContainer.active {
@@ -227,4 +229,17 @@ pre {
 }
 pre a {
   color:#E07E00;
+}
+.loading-icon {
+  display:none;
+  height: 19px;
+  width: 220px;
+  position: relative;
+  left: 50%;
+  margin-left: -110px;
+  background: url(http://www.ajaxload.info/cache/33/33/33/FF/FF/FF/8-1.gif);
+  top: 11px;
+}
+.showing {
+  display:inline-block;
 }
