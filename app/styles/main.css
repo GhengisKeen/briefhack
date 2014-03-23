@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  margin-right: 6px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -38,32 +38,83 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+.graphholder {
+  width: 49%;
+  float: right;
+  padding: 75px;
+  padding-top: 68px;
+  height:700px;
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
+.container .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  padding:0;
+  padding-left:0 !important;
+  padding-right:0 !important;
+  background-color:#333;
+  border-top-left-radius:0;
 }
-.jumbotron .btn {
+h3 {
+  font-family: "Goudy Old Style",serif;
+  text-align:left;
+}
+.jumbotron .btn { 
   font-size: 21px;
   padding: 14px 24px;
 }
-
+.news_items {
+  padding:30px;
+  padding-top:0;
+}
+pre.article {
+  text-align: left;
+  font-size: 15pt;
+  overflow-y: scroll;
+  height: 286px;
+  font-family: "Goudy Old Style",serif;
+}
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
 }
 .marketing p + h4 {
   margin-top: 28px;
+}
+.btn-custom {
+  color:white;
+  background-color: #333;
+  border-color: #333;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active
+.active .btn-custom {
+  background-color: #262626;
+  color:white;
+  border-color: #333;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  color:#777;
+  background-color: #333;
+  border-color: #333;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -75,10 +126,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -89,29 +136,45 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   border: 1px solid black;
 }
 
-.active {
-  background-color:#333;
+.container.ng-scope {
+  border-top-left-radius:0;
+  width:100%;
 }
-.inactive {
+::-webkit-scrollbar {
+    width: 12px;
 }
-
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(50,50,50,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(50,50,50,0.4); 
+}
 .newsItemContainer {
-    padding: 5px;
-    border-bottom: 1px solid #555;
-  position:relative;
-}
-.newsItemContainer {
-  position:absolute;
-}
-.newsItemContainer {
+  padding: 5px;
+  border-bottom: 1px solid #555;
   position:relative;
   padding-top:15px;
 }
+.news_items .newsItemContainer {
+  border:0;
+}
 .newsItemContainer h6 {
-padding-top: 40px;
-vertical-align: top;
-z-index: 5;
-position: relative;
+  padding-top: 40px;
+  vertical-align: top;
+  z-index: 5;
+  position: relative;
 }
 .newsItemContainer h4 {
   background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 15px,rgba(0,0,0,0.9) 30px,rgba(0,0,0,1) 100%);
@@ -125,11 +188,11 @@ position: relative;
   background: linear-gradient(to top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.5) 15px,rgba(51,51,51,0.9) 30px,rgba(51,51,51,1) 100%);
 }
 .newsItemContainer img {
-float: left;
-position: relative;
-margin-right: 10px;
-vertical-align: top;
-margin-top: 14px;
+  float: left;
+  position: relative;
+  margin-right: 10px;
+  vertical-align: top;
+  margin-top: 14px;
 }
 
 .add-button {
@@ -138,4 +201,22 @@ margin-top: 14px;
   bottom:10px;
   left:10px;
   font-size: 29px;
+}
+.btn-toolbar button {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.highcharts-container {
+  border-radius: 5px;
+  border: 3px solid #242424;
+}
+pre {
+  background-color: #555;
+  border: 3px solid #242424;
+  border-radius: 4px;
+  color:#fff;
+}
+pre a {
+  color:#E07E00;
 }
