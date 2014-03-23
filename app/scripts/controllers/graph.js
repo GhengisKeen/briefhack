@@ -797,11 +797,11 @@ angular.module('briefhackApp')
                   $scope.newsItems.push({
                      name: data.d[0].Id,
                      headline: data.d[0].Headline
-                        .replace(/<([^>]*)>/g, '(<a href="#">$1</a>)')
-                        .replace(/\[([^\]]*)\]/g, '(<a href="#">$1</a>)'),
+                        .replace(/ ?<([^>]*)>/g, ' (<a href="#">$1</a>)')
+                        .replace(/ ?\[([^\]]*)\]/g, ' (<a href="#">$1</a>)'),
                      text: data.d[0].StoryText
-                        .replace(/<([^>]*)>/g, '(<a href="#">$1</a>)')
-                        .replace(/\[([^\]]*)\]/g, '(<a href="#">$1</a>)')
+                        .replace(/ ?<([^>]*)>/g, ' (<a href="#">$1</a>)')
+                        .replace(/ ?\[([^\]]*)\]/g, ' (<a href="#">$1</a>)')
                         .replace(/\n(\t|  +|\n)/g,"<br />\t")
                         .replace(/\n/g," ")
                   });
