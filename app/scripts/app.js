@@ -20,6 +20,10 @@ angular.module('briefhackApp', [
         templateUrl: 'partials/desktop',
         controller: 'DesktopCtrl'
       })
+      .when('/bucket/:id', {
+        templateUrl: 'partials/desktop',
+        controller: 'DesktopCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
