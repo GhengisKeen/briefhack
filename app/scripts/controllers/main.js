@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('MainCtrl', function($scope, $http) {
+	.controller('MainCtrl', function($scope, $http, $location) {
+		$location.path('/signin');
 		$scope.selected = [];
+
 
 		$scope.btnAdd = function() {
 			alert(0);
