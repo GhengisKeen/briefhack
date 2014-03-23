@@ -4,33 +4,50 @@ angular.module('briefhackApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ui.router'
 ])
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/client/', {
+      .state('client', {
+        url: '/client',
         templateUrl: 'partials/client',
         controller: 'ClientCtrl'
       })
-      .when('/desktop/', {
+      .state('desktop', {
+        url: '/desktop',
         templateUrl: 'partials/desktop',
-        controller: 'DesktopCtrl'
+        controller: 'DesktopCtrl',
+        resolve: {tabs: function(Bucket){
+          return Bucket.queryAll();
+        }}
       })
-      .when('/categories/', {
+
+      .state('categories', {
+        url: '/categories/',
         templateUrl: 'partials/categories',
         controller: 'CategoriesCtrl'
       })
-      .when('/bucket/:id', {
-        templateUrl: 'partials/desktop',
+      .state('tabs', {
+        parent: 'desktop',
+        url: '/bucket/:id',
+        templateUrl: 'partials/graph',
         controller: 'DesktopCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('bucket', {
+        url: '/bucket/:id',
+        templateUrl: 'partials/bucket',
+        controller: 'BucketCtrl'
+      })
+      .state('graph', {
+        url: '/graph',
+        templateUrl: 'partials/graph',
+        controller: 'GraphCtrl'
       });
-      
+
     $locationProvider.html5Mode(true);
   });

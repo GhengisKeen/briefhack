@@ -1,0 +1,12 @@
+<p>This is the bucket view.</p>
+{{params}}
+
+<button ng-click="createBucket()">BLAH</button>
+<button ng-click="queryBucket(1)">query</button>
+
+<div ng-repeat="item in buckets"> {{item._id}}
+<button ng-click="deleteBucket($index)">Delete</button>
+<button ng-click="getBucket($index)">get</button>
+</div>
+
+<div ng-repeat="x in singleBucket.articles">{{x}}</div>
