@@ -16,6 +16,7 @@ angular.module('briefhackApp')
 		// use only for live server.
 		// $log.info("deferred", tabs);
 		$scope.menu = tabs;
+		window.TABS = tabs;
 		// window.tabs = tabs;
 		// $scope.currentTab = (_.isUndefined(_.first(tabs))) ? {
 		// 	articles: []
@@ -37,6 +38,11 @@ angular.module('briefhackApp')
 			$scope.menu.splice(id, 1);
 			$scope.changeTab(id % ($scope.menu.length));
 
+		};
+		$scope.alpha = function(index) {
+			return ["Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Golf","Hotel",
+					"Indigo","Juliet","Kilo","Lima","Mike","November","Oscar","Papa",
+					"Quebec","Romeo","Sierra","Tango","Uniform","Victor","Whisky","X-ray","Zulu"][index];
 		};
 		$scope.changeTab = function(id) {
 			Bucket.get({}, {

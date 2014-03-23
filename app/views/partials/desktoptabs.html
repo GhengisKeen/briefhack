@@ -1,7 +1,7 @@
 <div class="header">
 <div class="btn-toolbar" role="toolbar">
   <div class="btn-group" ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-  	<button type="button" class="btn btn-custom btn-default btn-large" ng-click='changeTab($index)'>Tab {{$index}}</button>
+  	<button type="button" class="btn btn-custom btn-default btn-large" ng-click='changeTab($index)'>{{alpha($index)}}</button>
     <button type="button" class="btn btn-custom btn-default btn-large" ng-click="closeTab($index)">x</button>
   </div>
 </div>
