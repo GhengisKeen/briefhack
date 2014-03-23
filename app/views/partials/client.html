@@ -1,8 +1,11 @@
 <div class="row marketing">
-    <div ng-repeat="thing in newsList" ng-class="{true: 'active', false: 'inactive'}[thing.isActive]" ng-click="highlightMe($index)" class="newsItemContainer">
-        <h4>{{thing.name}}</h4>
-        {{thing.clickedClass}}
-        <!-- <p>{{thing.info}}</p> -->
+    <div ng-repeat="item in newsList" ng-class="{true: 'active', false: 'inactive'}[item.isActive]" ng-click="highlightMe($index)" class="newsItemContainer">
+	    <div>
+	    	<h4>{{item.headline}} - <span class="small">{{item.stringDate}}</span></h4>
+    		<img src="data:image/gif;base64,{{item.smallImage}}" />
+	        <h6>{{item.excerpt}}</h6>
+	        <div style="clear:both"></div>
+	    </div>
     </div>
 </div>
-<button ng-click="btnAdd()" class="btn btn-default">Add to case</button>
+<button ng-click="btnAdd()" class="add-button btn">Add to case</button>

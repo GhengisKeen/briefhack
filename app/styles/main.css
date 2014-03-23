@@ -1,9 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color:#111;
+  color:#fff;
+  font-family: 'Droid Sans', sans-serif;
 }
-
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Droid Sans', sans-serif;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -83,14 +90,49 @@ body {
 }
 
 .active {
-  background-color: grey;
+  background-color:#333;
 }
 .inactive {
-  background-color: white;
 }
 
 .newsItemContainer {
-  border: 1px solid black;
-  padding: 20px 0;
-  margin: 20px 0;
+    padding: 5px;
+    border-bottom: 1px solid #555;
+  position:relative;
+}
+.newsItemContainer {
+  position:absolute;
+}
+.newsItemContainer {
+  position:relative;
+  padding-top:15px;
+}
+.newsItemContainer h6 {
+padding-top: 40px;
+vertical-align: top;
+z-index: 5;
+position: relative;
+}
+.newsItemContainer h4 {
+background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 15px,rgba(0,0,0,0.9) 30px,rgba(0,0,0,1) 100%);
+padding-bottom: 30px;
+position: absolute;
+z-index: 2;
+top: 0;
+width: 100%;
+}
+.newsItemContainer img {
+float: left;
+position: relative;
+margin-right: 10px;
+vertical-align: top;
+margin-top: 14px;
+}
+
+.add-button {
+  position:fixed;
+  z-index:10;
+  bottom:10px;
+  left:10px;
+  font-size: 29px;
 }
