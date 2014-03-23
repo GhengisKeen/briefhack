@@ -24,6 +24,10 @@ angular.module('briefhackApp', [
         templateUrl: 'partials/desktop',
         controller: 'DesktopCtrl'
       })
+      .when('/graph/', {
+        templateUrl: 'partials/graph',
+        controller: 'GraphCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
