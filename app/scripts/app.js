@@ -21,6 +21,15 @@ angular.module('briefhackApp', [
       .state('desktop', {
         url: '/desktop',
         templateUrl: 'partials/desktop',
+        controller: 'DesktopCtrl',
+        resolve: {tabs: function(Bucket){
+          return Bucket.queryAll();
+        }}
+      })
+      .state('tabs', {
+        parent: 'desktop',
+        // url: '/desktop',
+        templateUrl: 'partials/graph',
         controller: 'DesktopCtrl'
       })
       .state('bucket', {
