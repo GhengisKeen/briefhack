@@ -13,7 +13,7 @@ angular.module('briefhackApp')
 			for (var i = 0; i < data.d.length; i++) {
 				$scope.catList.push({
 					name: data.d[i].Name,
-					code: data.d[i].Code
+					value: data.d[i].Code
 				});
 			}
 			
@@ -23,7 +23,7 @@ angular.module('briefhackApp')
 		});
 
 
-		$scope.goToCategory = function($index) {
-			console.log("Item " + $index);
+		$scope.goToCategory = function() {
+			console.log("Go to category " + $scope.currentCategory);
 		};
   });

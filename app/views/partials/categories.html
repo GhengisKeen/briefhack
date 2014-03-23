@@ -1,5 +1,3 @@
 <div class="row marketing">
-    <div ng-repeat="category in catList" ng-click="goToCategory(category.code)">
-        <h4>{{category.name}}</h4>
-    </div>
+        <select ng-model="currentCategory" ng-options="c.value as c.name for c in catList" ng-change="goToCategory()"></select><br>
 </div>
