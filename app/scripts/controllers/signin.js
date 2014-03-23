@@ -2,8 +2,7 @@
 
 angular.module('briefhackApp')
 	.controller('SigninCtrl', function($scope, $http, $location) {
-		$scope.login = function(form) {
-			$scope.submitted = true;
+		$scope.login = function() {
 			$location.path('/desktop');
 		};
 	});
