@@ -2,7 +2,7 @@
 /*global _:false */
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http) {
+	.controller('ClientCtrl', function($scope, $http, Bucket) {
 
 		// Get news item from hard-coded category
 		$scope.newsList = [];
@@ -25,7 +25,7 @@ angular.module('briefhackApp')
 					isActive: false
 				});
 			}
-			
+
 		});
 
 		$scope.highlightMe = function($index) {
@@ -34,10 +34,20 @@ angular.module('briefhackApp')
 
 		$scope.btnAdd = function() {
 			// filter those that have isActive set to true. 
-			$scope.filtered = _.filter($scope.newsList, function(value, key, list) {
+			var filtered = _.filter($scope.newsList, function(value, key, list) {
 				// console.log(value.isActive);
 				return value.isActive === true;
 			});
-			console.log($scope.filtered);
+			filtered = _.pluck(filtered, 'code');
+			Bucket.save({}, {
+				'articles': filtered
+			}); // save to database
+
+			// reset selection
+			_.each($scope.newsList, function(item) {
+				// console.log(item);
+				item.isActive = false;
+			});
+
 		};
 	});
