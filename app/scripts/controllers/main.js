@@ -4,20 +4,29 @@ angular.module('briefhackApp')
 	.controller('MainCtrl', function($scope, $http) {
 		$scope.selected = [];
 
-		// Authenticate
-		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/UserInfo').error(function(data) {
-			// debugger
-		});
+		$scope.btnAdd = function() {
+			alert(0);
+		};
+		$scope.isActive = false;
 
 		// Get news item from hard-coded category
 		$scope.newsList = [];
-		$http.get('https://amers1.mobile13.cp.reutest.com/msf1.0/data/TopNews', {
-			params: {
-				"$filter": "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
-				"$select": "headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier"
+
+		function encodeQueryString(obj) {
+			var str = [];
+			for (var p in obj) {
+				if (obj.hasOwnProperty(p)) {
+					str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+				}
 			}
-		}).
-		success(function(data, status, headers, config) {
+			return str.join('&');
+		}
+
+		$http.get('/api/Reuters/TopNews/' + encodeURIComponent(JSON.stringify({
+			'$filter': "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
+			'$select': 'headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier'
+		}))).
+		success(function(data) {
 			for (var index = 0; index < data.d.length; index++) {
 				console.log(data.d[index]);
 			}
@@ -36,7 +45,7 @@ angular.module('briefhackApp')
 		});
 
 		$scope.isActive = false;
-		/*		$scope.btnAdd = function() {
+		/*      $scope.btnAdd = function() {
 			// $window.alert(1);
 			console.log('hihi');
 			$scope.newsList = [{
@@ -57,8 +66,8 @@ angular.module('briefhackApp')
 			$scope.selected.push($scope.newsList[$index]);
 			$scope.newsList[$index].isActive = !$scope.newsList[$index].isActive;
 		};
-		$http.get('/api/awesomeThings').success(function(awesomeThings) {
-			$scope.awesomeThings = awesomeThings;
-		});
+		// $http.get('/api/awesomeThings').success(function(awesomeThings) {
+		// 	$scope.awesomeThings = awesomeThings;
+		// });
 		// $scope.newsList = ['newsA', 'newsB', 'newsC'];
 	});

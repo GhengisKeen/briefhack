@@ -1,4 +1,5 @@
 'use strict';
+/*global _:false */
 
 angular.module('briefhackApp')
 	.controller('ClientCtrl', function($scope, $http, News, $location) {
@@ -45,5 +46,5 @@ angular.module('briefhackApp')
 				return value.isActive === true;
 			});
 			console.log($scope.filtered);
-		}
+		};
 	});
