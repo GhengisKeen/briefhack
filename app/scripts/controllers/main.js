@@ -12,16 +12,6 @@ angular.module('briefhackApp')
 		// Get news item from hard-coded category
 		$scope.newsList = [];
 
-		function encodeQueryString(obj) {
-			var str = [];
-			for (var p in obj) {
-				if (obj.hasOwnProperty(p)) {
-					str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
-				}
-			}
-			return str.join('&');
-		}
-
 		$http.get('/api/Reuters/TopNews/' + encodeURIComponent(JSON.stringify({
 			'$filter': "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
 			'$select': 'headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier'
@@ -45,20 +35,6 @@ angular.module('briefhackApp')
 		});
 
 		$scope.isActive = false;
-		/*      $scope.btnAdd = function() {
-			// $window.alert(1);
-			console.log('hihi');
-			$scope.newsList = [{
-				name: 'newsAAA',
-				isActive: false
-			}, {
-				name: 'newsAAA',
-				isActive: false
-			}, {
-				name: 'newsAAA',
-				isActive: false
-			}];
-		}*/
 
 		$scope.highlightMe = function($index) {
 			// $window.alert(1);
@@ -66,8 +42,4 @@ angular.module('briefhackApp')
 			$scope.selected.push($scope.newsList[$index]);
 			$scope.newsList[$index].isActive = !$scope.newsList[$index].isActive;
 		};
-		// $http.get('/api/awesomeThings').success(function(awesomeThings) {
-		// 	$scope.awesomeThings = awesomeThings;
-		// });
-		// $scope.newsList = ['newsA', 'newsB', 'newsC'];
 	});
