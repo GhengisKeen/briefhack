@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container" ui-view></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -56,6 +56,7 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -68,6 +69,8 @@
         <script src="scripts/controllers/desktop.js"></script>
         <script src="scripts/controllers/graph.js"></script>
         <script src="scripts/controllers/bucket.js"></script>
+        <script src="scripts/controllers/categories.js"></script>
+        <script src="scripts/services/bucket.js"></script>
         <!-- endbuild -->
 </body>
 </html>

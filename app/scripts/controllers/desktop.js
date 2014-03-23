@@ -1,13 +1,20 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('DesktopCtrl', function($scope) {
+	.controller('DesktopCtrl', function($scope, tabs, Bucket) {
 
-		$scope.menu = [{
-			'title': 'Home',
-			'link': '/'
-		}];
+		console.log($scope.tabs, tabs);
 
+		// setInterval(function() {
+		// 	console.log("blah");
+		// 	Bucket.queryAll(function(data) {
+		// 		$scope.menu = data;
+		// 	});
+		// }, 3000);
+
+		// use only for live server.
+
+		$scope.menu = tabs;
 		$scope.isActive = function(route) {
 			return true;
 			// return route === $location.path();
