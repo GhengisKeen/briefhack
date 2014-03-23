@@ -2,37 +2,30 @@
 /*global _:false */
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http, News, $location) {
-		$scope.go = function(params) {
-			return (decodeURIComponent(params));
-		};
+	.controller('ClientCtrl', function($scope, $http) {
 
-		$scope.a = {'$test':"urn'test'", '$blah':'foo'};
-		$scope.b = buildUrl($scope.a);
-		console.log('b', $scope.b);
-		$scope.newsList = [{
-			name: 'newsAAA',
-			headline: 'newsAAA',
-			excerpt: 'newsAAA',
-			code: 'newsAAA',
-			isActive: false
-		}, {
-			name: 'newsAAA',
-			headline: 'newsAAA',
-			excerpt: 'newsAAA',
-			code: 'newsAAA',
-			isActive: false
-		}, {
-			name: 'newsAAA',
-			headline: 'newsAAA',
-			excerpt: 'newsAAA',
-			code: 'newsAAA',
-			isActive: false
-		}];
+		// Get news item from hard-coded category
+		$scope.newsList = [];
 
-		console.log(News.get());
-		$http.get('/api/awesomeThings').success(function(awesomeThings) {
-			$scope.awesomeThings = awesomeThings;
+		$http.get('/api/Reuters/TopNews/' + encodeURIComponent(JSON.stringify({
+			'$filter': "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
+			'$select': 'headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier'
+		}))).
+		success(function(data) {
+
+			for (var index = 0; index < data.d.length; index++) {
+				console.log(data.d[index]);
+			}
+			for (var i = 0; i < data.d.length; i++) {
+				$scope.newsList.push({
+					name: data.d[i].headline,
+					headline: data.d[i].headline,
+					excerpt: data.d[i].Brief,
+					code: data.d[i].uniqueIdentifier,
+					isActive: false
+				});
+			}
+			
 		});
 
 		$scope.highlightMe = function($index) {
