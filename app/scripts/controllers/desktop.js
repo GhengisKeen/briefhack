@@ -2,8 +2,9 @@
 
 angular.module('briefhackApp')
 	.controller('DesktopCtrl', function($scope, tabs, Bucket) {
-
-		console.log($scope.tabs, tabs);
+		$scope.currentTab = {
+			articles: '4'
+		};
 
 		// setInterval(function() {
 		// 	console.log("blah");
@@ -20,6 +21,24 @@ angular.module('briefhackApp')
 			// return route === $location.path();
 		};
 
+		$scope.closeTab = function(id) {
+			// console.log("Delete bucket is clicked" + $scope.menu[id]._id);
+			Bucket.remove({
+				id: $scope.menu[id]._id
+			}, function(err) {
+				console.log(err);
+			});
+			$scope.menu.splice(id, 1);
+			$scope.changeTab(id % ($scope.menu.length));
+
+		};
+		$scope.changeTab = function(id) {
+			Bucket.get({}, {
+				"id": $scope.menu[id]._id
+			}, function(data) {
+				$scope.currentTab = data;
+			});
+		};
 		$scope.addAnother = function() {
 			console.log('test');
 			$scope.menu.push({
@@ -33,4 +52,5 @@ angular.module('briefhackApp')
 			alert('Task Id is ' + taskId);
 		};
 		console.log($scope);
+
 	});
