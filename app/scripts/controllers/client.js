@@ -13,9 +13,6 @@ angular.module('briefhackApp')
 		}))).
 		success(function(data) {
 
-			for (var index = 0; index < data.d.length; index++) {
-				console.log(data.d[index]);
-			}
 			for (var i = 0; i < data.d.length; i++) {
 				$scope.newsList.push({
 					name: data.d[i].headline,
@@ -25,7 +22,7 @@ angular.module('briefhackApp')
 					isActive: false
 				});
 			}
-			
+
 		});
 
 		$scope.highlightMe = function($index) {

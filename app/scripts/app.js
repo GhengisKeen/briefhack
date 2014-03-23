@@ -20,6 +20,10 @@ angular.module('briefhackApp', [
         templateUrl: 'partials/desktop',
         controller: 'DesktopCtrl'
       })
+      .when('/categories/', {
+        templateUrl: 'partials/categories',
+        controller: 'CategoriesCtrl'
+      })
       .when('/bucket/:id', {
         templateUrl: 'partials/desktop',
         controller: 'DesktopCtrl'
