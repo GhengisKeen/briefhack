@@ -2,7 +2,7 @@
 /*global _:false */
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http, News, $location) {
+	.controller('ClientCtrl', function($scope, $http) {
 
 		// Get news item from hard-coded category
 		$scope.newsList = [];
@@ -12,6 +12,7 @@ angular.module('briefhackApp')
 			'$select': 'headline,ImageUrl,SmallImageUrl,Brief,uniqueIdentifier'
 		}))).
 		success(function(data) {
+
 			for (var index = 0; index < data.d.length; index++) {
 				console.log(data.d[index]);
 			}
@@ -24,6 +25,7 @@ angular.module('briefhackApp')
 					isActive: false
 				});
 			}
+			
 		});
 
 		$scope.highlightMe = function($index) {
