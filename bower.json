@@ -12,7 +12,6 @@
     "angular-sanitize": "1.2.11",
     "angular-route": "1.2.11",
     "underscore": "~1.6.0",
-    "highcharts": "~3.0.7",
     "angular-ui-router": "~0.2.10"
   },
   "devDependencies": {
