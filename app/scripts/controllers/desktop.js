@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('DesktopCtrl', function($scope, tabs, Bucket, $log) {
+	.controller('DesktopCtrl', function($scope, tabs, Bucket) {
 		$scope.currentTab = {
 			articles: []
 		};
@@ -14,9 +14,9 @@ angular.module('briefhackApp')
 		// }, 3000);
 
 		// use only for live server.
-		// $log.info("deferred", tabs);
+
 		$scope.menu = tabs;
-		// window.tabs = tabs;
+
 		// $scope.currentTab = (_.isUndefined(_.first(tabs))) ? {
 		// 	articles: []
 		// } : _.first(tabs);

@@ -4,6 +4,132 @@
 angular.module('briefhackApp')
 	.factory('News', function News() {
 		return {
+			getCategories: function() {
+				return [{
+					"name": "Front Page",
+					"value": "urn:newsml:reuters.com:20020923:SPDOC_119827232002"
+				}, {
+					"name": "Euro Zone",
+					"value": "urn:newsml:reuters.com:20101213:SPDOC_1458541320101"
+				}, {
+					"name": "Central Banks & Global Economy",
+					"value": "urn:newsml:reuters.com:20080317:SPDOC_1727041720081"
+				}, {
+					"name": "Crisis in Ukraine",
+					"value": "urn:newsml:reuters.com:20100518:SPDOC_1824391820101"
+				}, {
+					"name": "Political & General News",
+					"value": "urn:newsml:reuters.com:20020924:SPDOC_56045242002"
+				}, {
+					"name": "IFR",
+					"value": "urn:newsml:reuters.com:20090214:SPDOC_714091420091"
+				}, {
+					"name": "Investment Strategy",
+					"value": "urn:newsml:reuters.com:20030127:SPDOC_100865272003"
+				}, {
+					"name": "Reuters Breakingviews",
+					"value": "urn:newsml:reuters.com:20090126:SPDOC_1343432620091"
+				}, {
+					"name": "Financial Services",
+					"value": "urn:newsml:reuters.com:20030212:SPDOC_88894122003"
+				}, {
+					"name": "Investment Banking",
+					"value": "urn:newsml:reuters.com:20030324:SPDOC_46640242003"
+				}, {
+					"name": "Wealth Management - North America",
+					"value": "urn:newsml:reuters.com:20090513:SPDOC_1788511320091"
+				}, {
+					"name": "U.S. Companies",
+					"value": "urn:newsml:reuters.com:20020924:SPDOC_55977242002"
+				}, {
+					"name": "European Companies",
+					"value": "urn:newsml:reuters.com:20020924:SPDOC_55994242002"
+				}, {
+					"name": "Asian Companies",
+					"value": "urn:newsml:reuters.com:20020924:SPDOC_56007242002"
+				}, {
+					"name": "Foreign Exchange ",
+					"value": "urn:newsml:reuters.com:20030127:SPDOC_101094272003"
+				}, {
+					"name": "Fixed Income",
+					"value": "urn:newsml:reuters.com:20030127:SPDOC_99618272003"
+				}, {
+					"name": "Emerging Markets",
+					"value": "urn:newsml:reuters.com:20030915:SPDOC_39030152003"
+				}, {
+					"name": "Commodities",
+					"value": "urn:newsml:reuters.com:20060119:SPDOC_28769192006"
+				}, {
+					"name": "Commodities Commentary & Insight",
+					"value": "urn:newsml:reuters.com:20130426:SPDOC_1898180262013"
+				}, {
+					"name": "Energy",
+					"value": "urn:newsml:reuters.com:20110214:SPDOC_1568591420111"
+				}, {
+					"name": "Metals",
+					"value": "urn:newsml:reuters.com:20110214:SPDOC_1568781420111"
+				}, {
+					"name": "Agricultural Commodities",
+					"value": "urn:newsml:reuters.com:20110214:SPDOC_1568921420111"
+				}, {
+					"name": "North American Power & Natural Gas",
+					"value": "urn:newsml:reuters.com:20110214:SPDOC_1570081420111"
+				}, {
+					"name": "European Power, Gas, Carbon & Coal",
+					"value": "urn:newsml:reuters.com:20110214:SPDOC_1569211420111"
+				}, {
+					"name": "Technology, Media & Telecoms",
+					"value": "urn:newsml:reuters.com:20060725:SPDOC_304469252006"
+				}, {
+					"name": "Basic Industries",
+					"value": "urn:newsml:reuters.com:20030521:SPDOC_67969212003"
+				}, {
+					"name": "Consumer Goods",
+					"value": "urn:newsml:reuters.com:20030314:SPDOC_75442142003"
+				}, {
+					"name": "Healthcare",
+					"value": "urn:newsml:reuters.com:20030314:SPDOC_75426142003"
+				}, {
+					"name": "Greater China",
+					"value": "urn:newsml:reuters.com:20080903:SPDOC_1276490320081"
+				}, {
+					"name": "Britain & Ireland",
+					"value": "urn:newsml:reuters.com:20080901:SPDOC_1365800120081"
+				}, {
+					"name": "Canada",
+					"value": "urn:newsml:reuters.com:20081001:SPDOC_1321850120081"
+				}, {
+					"name": "Latin America",
+					"value": "urn:newsml:reuters.com:20080903:SPDOC_1319880320081"
+				}, {
+					"name": "Middle East & North Africa",
+					"value": "urn:newsml:reuters.com:20080903:SPDOC_1308830320081"
+				}, {
+					"name": "Africa",
+					"value": "urn:newsml:reuters.com:20080813:SPDOC_2047711320081"
+				}, {
+					"name": "日本語トップニュース",
+					"value": "urn:newsml:reuters.com:20090527:SPDOC_1323242720091"
+				}, {
+					"name": "路透中文新闻",
+					"value": "urn:newsml:reuters.com:20100623:SPDOC_1331612320101"
+				}, {
+					"name": "Deutschland",
+					"value": "urn:newsml:reuters.com:20081209:SPDOC_995840920081"
+				}, {
+					"name": "L’essentiel de l'actualité",
+					"value": "urn:newsml:reuters.com:20110405:SPDOC_1577840520111"
+				}, {
+					"name": "Brasil",
+					"value": "urn:newsml:reuters.com:20110719:SPDOC_1248091920111"
+				}, {
+					"name": "Sport",
+					"value": "urn:newsml:reuters.com:20020927:SPDOC_66767272002"
+				}, {
+					"name": "Lifestyle & Entertainment",
+					"value": "urn:newsml:reuters.com:20070301:SPDOC_1688530120071"
+				}];
+			},
 			get: function() {
 				return [{
 					"headline": "Media General to buy broadcaster LIN Media for $1.6 bln",
