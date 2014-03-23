@@ -13,6 +13,11 @@ angular.module('briefhackApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
+      .state('signIn', {
+        url: '/signin',
+        templateUrl: 'partials/signin',
+        controller: 'SigninCtrl'
+      })
       .state('client', {
         url: '/client',
         templateUrl: 'partials/client',

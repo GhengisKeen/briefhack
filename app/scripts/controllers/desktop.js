@@ -3,7 +3,7 @@
 angular.module('briefhackApp')
 	.controller('DesktopCtrl', function($scope, tabs, Bucket) {
 		$scope.currentTab = {
-			articles: ['nL2N0MI1WD','nL6N0MI45Z']
+			articles: []
 		};
 
 		// setInterval(function() {
