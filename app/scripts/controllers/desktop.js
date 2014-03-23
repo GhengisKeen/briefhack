@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('briefhackApp')
-	.controller('DesktopCtrl', function($scope, tabs, Bucket) {
+	.controller('DesktopCtrl', function($scope, tabs, Bucket, $log) {
 		$scope.currentTab = {
 			articles: []
 		};
@@ -14,8 +14,14 @@ angular.module('briefhackApp')
 		// }, 3000);
 
 		// use only for live server.
-
+		// $log.info("deferred", tabs);
 		$scope.menu = tabs;
+		// window.tabs = tabs;
+		// $scope.currentTab = (_.isUndefined(_.first(tabs))) ? {
+		// 	articles: []
+		// } : _.first(tabs);
+		// console.log("first tab", _.first(tabs));
+		// console.log("our current tab", $scope.currentTab);
 		$scope.isActive = function(route) {
 			return true;
 			// return route === $location.path();

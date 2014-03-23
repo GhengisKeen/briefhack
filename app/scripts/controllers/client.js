@@ -2,16 +2,19 @@
 /*global _:false */
 
 angular.module('briefhackApp')
-	.controller('ClientCtrl', function($scope, $http, Bucket) {
+	.controller('ClientCtrl', function($scope, $http, Bucket, News) {
 
 		// Get news item from hard-coded category
-		$scope.newsList = [];
+		// $scope.newsList = [];
+		$scope.newsList = News.get();
 
 		$http.get('/api/Reuters/TopNews/' + encodeURIComponent(JSON.stringify({
 			'$filter': "Request/Codes eq 'urn:newsml:reuters.com:20060725:SPDOC_304469252006'",
 			'$select': 'headline,Brief,uniqueIdentifier,SmallImage,SmallImageUrl,ImageUrl,insertDateTime'
 		}))).
 		success(function(data) {
+			$scope.newsList = [];
+
 			function pad(num, size) {
 				var s = num+"";
 				while (s.length < size) {
@@ -58,5 +61,9 @@ angular.module('briefhackApp')
 				item.isActive = false;
 			});
 
+		};
+
+		$scope.saveBtn = function() {
+			console.log(JSON.stringify($scope.newsList));
 		};
 	});
