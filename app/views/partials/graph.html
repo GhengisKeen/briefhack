@@ -1,2 +1,8 @@
-<p>This is the graph view.</p>
-<div id='container'></div>
+<p>These are the stories...</p>
+<div class="news_items" style="flush:left; width:460px">
+    <div ng-repeat="thing in newsItems" class="newsItemContainer">
+        <h4>{{thing.headline}}</h4>
+        <textarea rows="8" cols="68">{{thing.text}}</textarea>
+    </div>
+</div>
+<div id="container"> </div>
