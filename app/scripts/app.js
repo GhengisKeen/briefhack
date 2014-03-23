@@ -4,33 +4,35 @@ angular.module('briefhackApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ui.router'
 ])
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/client/', {
+      .state('client', {
+        url: '/client',
         templateUrl: 'partials/client',
         controller: 'ClientCtrl'
       })
-      .when('/desktop/', {
+      .state('desktop', {
+        url: '/desktop',
         templateUrl: 'partials/desktop',
         controller: 'DesktopCtrl'
       })
-      .when('/bucket/:id', {
-        templateUrl: 'partials/desktop',
-        controller: 'DesktopCtrl'
+      .state('bucket', {
+        url: '/bucket/:id',
+        templateUrl: 'partials/bucket',
+        controller: 'BucketCtrl'
       })
-      .when('/graph/', {
+      .state('graph', {
+        url: '/graph',
         templateUrl: 'partials/graph',
         controller: 'GraphCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
   });
